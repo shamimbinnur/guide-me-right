@@ -1,21 +1,34 @@
 import React from 'react'
 import { TiTick } from "react-icons/ti";
 
-const Card = () => {
+interface Props {
+  recommendation: any
+}
+
+const Card = (
+  recommendation: any
+) => {
   return (
     <div className="w-500px border w-full bg-neutral-900 bg-opacity-90 border-gray-400 rounded-xl p-6 shadow-lg">
       <div className="flex justify-between">
         <div className="flex items-center justify-start gap-x-4">
-          <p className="text-2xl font-bold text-white">Sundarban</p>
+          <p className="text-2xl font-bold text-white">{recommendation.recommendation[0].touristPlace}</p>
           
           <div className="bg-green-400 bg-opacity-20 px-3 py-2 rounded-full">
-            <p className="text-green-400 text-xs font-bold">34% Match</p> 
+            <p className="text-green-400 text-xs font-bold">{recommendation.recommendation[1]*100}% Match</p> 
           </div>
         </div>
 
         <div className="bg-primary rounded-full p-1 bg-opacity-20">
           <TiTick className="text-3xl text-primary" />
         </div>
+      </div>
+
+      <div className="flex gap-2 pt-2">
+        {recommendation.recommendation[0]?.subPlaces?.split(",").map((subPlace: string, index: number)=>
+        <div key={index} className="text-sm font-bold rounded-md px-2 bg-white bg-opacity-10 text-gray-400">
+          <p>{subPlace}</p>
+        </div>)}
       </div>
 
       <div className="pt-6">
