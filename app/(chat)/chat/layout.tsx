@@ -3,5 +3,5 @@ export default function ChatBotLayout({
 }: {
   children: React.ReactNode
 }) {
-  return <div className="bg-gradient-to-b h-screen from-secondary to-[#232328]">{children}</div>
+  return <div className="bg-gradient-to-b min-h-screen from-secondary to-[#232328]">{children}</div>
 }
